@@ -1,0 +1,77 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ## load non-segmented data
+> ## for each parameter
+> ##    find the derivative:  d_param
+> ##    plot(parameter, d_param)
+> 
+> 
+> 
+> infilename <- "../data/nonsegmented_Rollschuhe_1_pen.csv"
+> 
+> pen.data = read.csv(infilename, header = TRUE, sep = ",")
+> 
+> library(ggplot2)
+> 
+> 
+> param_names <- names(pen.data)
+> 
+> for (param_name in param_names) {
++ 
++     param <- pen.data[[param_name]]
++     d_param <- diff(param)
++ 
++     # remove first entry so vectors are same length (for plotting)
++     param <- param[-1]
++     
++     # re-scale (center and norm by variance) both axes
++ 
++     variance <- var(param)
++     param_scaled <- scale(param, center = TRUE, scale = variance)
++ 
++     
++     var_d <- var(d_param)
++     d_param_scaled <- scale(d_param, center = TRUE, scale = var_d)
++     
++ #    qplot(param, d_param)
++     qplot(param_scaled, d_param_scaled) + geom_path()
++ 
++     ggsave(paste0(param_name , "_scaled_phase.pdf"))
++ }
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+> 
+> proc.time()
+   user  system elapsed 
+ 15.430   0.712  24.339 

@@ -1,0 +1,21 @@
+% generate 2 signals
+t = 0:0.001:0.5;            
+y = chirp(t,0,1,150);
+y2= [cos(0:0.1:2*pi) y];
+y2= y2(1:size(y,2));
+
+% add noise
+yr =y +0.9*rand([1 size(y,2)]);
+y2r=y2+0.9*rand([1 size(y,2)]);
+
+% plot signals
+subplot( 2,1,1)
+plot(yr);
+hold on
+plot( y2r, 'r');
+hold off
+
+% plot cross-correlation
+subplot( 2, 1,2)
+[z, lags]=xcorr(yr, y2r);
+plot( lags, z(1:end));

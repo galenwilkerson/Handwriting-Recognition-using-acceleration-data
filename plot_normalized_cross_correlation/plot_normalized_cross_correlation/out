@@ -1,0 +1,137 @@
+starting
+getting strokes
+10 strokes
+strokes per label: 
+{'e': 2, 'K3': 2, 'K2': 2, 'K1': 2, 'r': 1, 'z': 1}
+saving num strokes per pair as .csv
+processing accel_x
+initializing results dictionaries
+finding normed cross-correlations... takes some time...
+Stroke: 0 label: K1
+Stroke: 0 label: K1
+normed cross correlation 1.0
+Stroke: 1 label: K2
+normed cross correlation 0.613651327821
+Stroke: 2 label: K3
+normed cross correlation 0.791677835674
+Stroke: 3 label: e
+normed cross correlation 0.24134249705
+Stroke: 4 label: r
+normed cross correlation 0.239883652377
+Stroke: 5 label: z
+normed cross correlation 0.166742955632
+Stroke: 6 label: e
+normed cross correlation 0.170116387737
+Stroke: 7 label: K1
+normed cross correlation 0.769568526355
+Stroke: 8 label: K2
+normed cross correlation 0.775115806469
+Stroke: 9 label: K3
+normed cross correlation 0.837270749954
+Stroke: 1 label: K2
+Stroke: 1 label: K2
+normed cross correlation 1.0
+Stroke: 2 label: K3
+normed cross correlation 0.592877212973
+Stroke: 3 label: e
+normed cross correlation 0.389885201839
+Stroke: 4 label: r
+normed cross correlation 0.454993755537
+Stroke: 5 label: z
+normed cross correlation 0.246346690205
+Stroke: 6 label: e
+normed cross correlation 0.240366116512
+Stroke: 7 label: K1
+normed cross correlation 0.454194367149
+Stroke: 8 label: K2
+normed cross correlation 0.572420981186
+Stroke: 9 label: K3
+normed cross correlation 0.615595323096
+Stroke: 2 label: K3
+Stroke: 2 label: K3
+normed cross correlation 1.0
+Stroke: 3 label: e
+normed cross correlation 0.273535476648
+Stroke: 4 label: r
+normed cross correlation 0.292152904291
+Stroke: 5 label: z
+normed cross correlation 0.168446854851
+Stroke: 6 label: e
+normed cross correlation 0.229552906395
+Stroke: 7 label: K1
+normed cross correlation 0.926652405975
+Stroke: 8 label: K2
+normed cross correlation 0.753239743515
+Stroke: 9 label: K3
+normed cross correlation 0.956570010348
+Stroke: 3 label: e
+Stroke: 3 label: e
+normed cross correlation 1.0
+Stroke: 4 label: r
+normed cross correlation 0.322396335378
+Stroke: 5 label: z
+normed cross correlation 0.573055496423
+Stroke: 6 label: e
+normed cross correlation 0.582572174484
+Stroke: 7 label: K1
+normed cross correlation 0.26990652033
+Stroke: 8 label: K2
+normed cross correlation 0.130086497502
+Stroke: 9 label: K3
+normed cross correlation 0.293706929916
+Stroke: 4 label: r
+Stroke: 4 label: r
+normed cross correlation 1.0
+Stroke: 5 label: z
+normed cross correlation 0.341938630724
+Stroke: 6 label: e
+normed cross correlation 0.303925023913
+Stroke: 7 label: K1
+normed cross correlation 0.278983523503
+Stroke: 8 label: K2
+normed cross correlation 0.282615713091
+Stroke: 9 label: K3
+normed cross correlation 0.281135830176
+Stroke: 5 label: z
+Stroke: 5 label: z
+normed cross correlation 1.0
+Stroke: 6 label: e
+normed cross correlation 0.558514855431
+Stroke: 7 label: K1
+normed cross correlation 0.221736901847
+Stroke: 8 label: K2
+normed cross correlation 0.181301089674
+Stroke: 9 label: K3
+normed cross correlation 0.156209464288
+Stroke: 6 label: e
+Stroke: 6 label: e
+normed cross correlation 1.0
+Stroke: 7 label: K1
+normed cross correlation 0.279441276633
+Stroke: 8 label: K2
+normed cross correlation 0.212158635974
+Stroke: 9 label: K3
+normed cross correlation 0.2236487839
+Stroke: 7 label: K1
+Stroke: 7 label: K1
+normed cross correlation 1.0
+Stroke: 8 label: K2
+normed cross correlation 0.637683045017
+Stroke: 9 label: K3
+normed cross correlation 0.941279277892
+Stroke: 8 label: K2
+Stroke: 8 label: K2
+normed cross correlation 1.0
+Stroke: 9 label: K3
+normed cross correlation 0.775345011986
+Stroke: 9 label: K3
+Stroke: 9 label: K3
+normed cross correlation 1.0
+saving sums of cross-correlations as .csv
+saving avg cross-correlations as .csv
+avg_normed_cross_correlations.columms
+['K1', 'K2', 'K3', 'e', 'r', 'z']
+avg_normed_cross_correlations.index
+['K1', 'K2', 'K3', 'e', 'r', 'z']
+making heatmap
+done!

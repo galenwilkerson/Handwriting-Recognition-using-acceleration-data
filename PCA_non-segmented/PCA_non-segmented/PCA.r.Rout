@@ -1,0 +1,127 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # plot PCA information
+> 
+> rm(list = ls())
+> 
+> require(graphics)
+> 
+> # load(../data/nonsegmented_Rollschuhe_1_pen.csv")
+> infilename <- "../data/nonsegmented_Rollschuhe_1_pen.csv"
+> 
+> pen.data = read.csv(infilename, header = FALSE, sep = ",")
+> 
+> ## The variances of the variables in the
+> ## USArrests data vary by orders of magnitude, so scaling is appropriate
+> #(pc.cr <- princomp(pen.data))  # inappropriate
+> #princomp(USArrests, cor = TRUE) # =^= prcomp(USArrests, scale=TRUE)
+> ## Similar, but different:
+> ## The standard deviations differ by a factor of sqrt(49/50)
+> 
+> print(summary(pc.cr <- princomp(pen.data, cor = TRUE)))
+Importance of components:
+                          Comp.1    Comp.2     Comp.3     Comp.4     Comp.5
+Standard deviation     2.4064059 1.9203966 1.11768992 1.02633770 0.65040171
+Proportion of Variance 0.4454453 0.2836864 0.09609467 0.08102839 0.03254018
+Cumulative Proportion  0.4454453 0.7291317 0.82522641 0.90625480 0.93879499
+                           Comp.6     Comp.7      Comp.8      Comp.9
+Standard deviation     0.57412910 0.53681827 0.333111928 0.208119195
+Proportion of Variance 0.02535571 0.02216722 0.008535658 0.003331815
+Cumulative Proportion  0.96415070 0.98631792 0.994853574 0.998185390
+                            Comp.10      Comp.11      Comp.12      Comp.13
+Standard deviation     0.1126884238 0.0815876838 0.0591595886 2.710803e-02
+Proportion of Variance 0.0009768216 0.0005120423 0.0002692198 5.652658e-05
+Cumulative Proportion  0.9991622113 0.9996742537 0.9999434734 1.000000e+00
+> 
+> print(loadings(pc.cr))  # note that blank entries are small but not zero
+
+Loadings:
+    Comp.1 Comp.2 Comp.3 Comp.4 Comp.5 Comp.6 Comp.7 Comp.8 Comp.9 Comp.10
+V1  -0.337         0.125  0.110  0.639         0.656                      
+V2  -0.262        -0.116 -0.616  0.467 -0.262 -0.495                      
+V3   0.101 -0.249  0.402  0.594  0.402        -0.489 -0.107               
+V4  -0.139 -0.430 -0.377  0.126                       0.256 -0.104        
+V5  -0.172 -0.252 -0.616  0.307        -0.231                0.211        
+V6   0.227 -0.385 -0.160 -0.172  0.199  0.458               -0.155        
+V7   0.389        -0.290         0.171                              0.426 
+V8   0.277  0.348 -0.171  0.152        -0.348        -0.102  0.229  0.340 
+V9  -0.402                0.144 -0.169 -0.220                0.244 -0.332 
+V10 -0.130 -0.439  0.216        -0.296 -0.424  0.127 -0.354 -0.447  0.333 
+V11  0.357  0.208 -0.156         0.134 -0.357        -0.123 -0.499 -0.621 
+V12  0.290 -0.327  0.111 -0.199                0.225 -0.508  0.566 -0.263 
+V13  0.298 -0.267  0.254 -0.148        -0.423         0.709  0.185        
+    Comp.11 Comp.12 Comp.13
+V1                         
+V2                         
+V3                         
+V4   0.707           0.210 
+V5  -0.544  -0.140   0.127 
+V6  -0.274   0.565  -0.251 
+V7   0.178  -0.399  -0.597 
+V8   0.143   0.636   0.145 
+V9   0.113   0.248  -0.701 
+V10          0.119         
+V11                        
+V12  0.177  -0.117         
+V13 -0.175                 
+
+               Comp.1 Comp.2 Comp.3 Comp.4 Comp.5 Comp.6 Comp.7 Comp.8 Comp.9
+SS loadings     1.000  1.000  1.000  1.000  1.000  1.000  1.000  1.000  1.000
+Proportion Var  0.077  0.077  0.077  0.077  0.077  0.077  0.077  0.077  0.077
+Cumulative Var  0.077  0.154  0.231  0.308  0.385  0.462  0.538  0.615  0.692
+               Comp.10 Comp.11 Comp.12 Comp.13
+SS loadings      1.000   1.000   1.000   1.000
+Proportion Var   0.077   0.077   0.077   0.077
+Cumulative Var   0.769   0.846   0.923   1.000
+> ## The signs of the columns are arbitrary
+> 
+> fig.dir = "fig/"
+> name = "PCA_Rollschuhe_1"
+> 
+> ####
+> 
+> title.name <- paste0("Screeplot:_", name)
+> file.name <- paste0(fig.dir,title.name,".pdf")
+>     
+> pdf(file.name)
+> plot(pc.cr) # shows a screeplot.
+> dev.off()
+null device 
+          1 
+> 
+> #####
+> 
+> title.name <- paste0("Biplot:_", name)
+> file.name <- paste0(fig.dir,title.name,".pdf")
+>     
+> pdf(file.name)
+> biplot(pc.cr)
+> dev.off()
+null device 
+          1 
+> 
+> 
+> 
+> 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  1.434   0.160   2.538 

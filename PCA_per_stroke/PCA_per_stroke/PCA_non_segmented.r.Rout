@@ -1,0 +1,137 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> # plot PCA information
+> 
+> rm(list = ls())
+> 
+> require(graphics)
+> 
+> # load(../data/nonsegmented_Rollschuhe_1_pen.csv")
+> infilename <- "../data/nonsegmented_Rollschuhe_1_pen.csv"
+> 
+> pen.data = read.csv(infilename, header = TRUE, sep = ",")
+> 
+> ## The variances of the variables in the
+> ## USArrests data vary by orders of magnitude, so scaling is appropriate
+> #(pc.cr <- princomp(pen.data))  # inappropriate
+> #princomp(USArrests, cor = TRUE) # =^= prcomp(USArrests, scale=TRUE)
+> ## Similar, but different:
+> ## The standard deviations differ by a factor of sqrt(49/50)
+> 
+> print(summary(pc.cr <- princomp(pen.data, cor = TRUE)))
+Importance of components:
+                         Comp.1    Comp.2    Comp.3    Comp.4     Comp.5
+Standard deviation     2.409329 1.9748689 1.3882279 1.1219369 1.02771244
+Proportion of Variance 0.362804 0.2437567 0.1204485 0.0786714 0.06601205
+Cumulative Proportion  0.362804 0.6065607 0.7270092 0.8056806 0.87169269
+                           Comp.6     Comp.7     Comp.8     Comp.9    Comp.10
+Standard deviation     0.80560664 0.65350070 0.58481804 0.53155192 0.46597736
+Proportion of Variance 0.04056263 0.02669145 0.02137576 0.01765922 0.01357093
+Cumulative Proportion  0.91225532 0.93894677 0.96032253 0.97798174 0.99155268
+                           Comp.11     Comp.12     Comp.13      Comp.14
+Standard deviation     0.286720600 0.185931764 0.102830580 0.0651292283
+Proportion of Variance 0.005138044 0.002160664 0.000660883 0.0002651135
+Cumulative Proportion  0.996690720 0.998851384 0.999512267 0.9997773802
+                            Comp.15      Comp.16
+Standard deviation     0.0534092272 2.663403e-02
+Proportion of Variance 0.0001782841 4.433571e-05
+Cumulative Proportion  0.9999556643 1.000000e+00
+> 
+> print(loadings(pc.cr))  # note that blank entries are small but not zero
+
+Loadings:
+        Comp.1 Comp.2 Comp.3 Comp.4 Comp.5 Comp.6 Comp.7 Comp.8 Comp.9 Comp.10
+acc_x   -0.337                      -0.144 -0.213  0.494 -0.454  0.449  0.370 
+acc_y   -0.261               -0.104  0.613 -0.119  0.475        -0.518 -0.160 
+acc_z    0.101 -0.222  0.162  0.418 -0.576         0.390        -0.351 -0.357 
+quat_x  -0.138 -0.395  0.242 -0.338                                           
+quat_y  -0.172 -0.235  0.161 -0.598 -0.267  0.189               -0.109  0.118 
+quat_z   0.227 -0.349  0.217 -0.126  0.201 -0.132        -0.138  0.320 -0.302 
+quat_w   0.388               -0.281                0.154 -0.117               
+euler_x  0.276  0.325 -0.127 -0.196 -0.165         0.126        -0.202  0.210 
+euler_y -0.401                      -0.150                0.141 -0.151  0.179 
+euler_z -0.129 -0.448         0.180               -0.221        -0.195  0.272 
+mag_x    0.356  0.185 -0.133 -0.192                0.171        -0.163  0.177 
+mag_y    0.291 -0.321                0.169 -0.146                             
+mag_z    0.299 -0.263         0.246  0.127                      -0.196  0.600 
+gyr_x          -0.151 -0.444 -0.246 -0.228 -0.758 -0.188        -0.137 -0.101 
+gyr_y           0.210  0.527               -0.466  0.191  0.609         0.148 
+gyr_z           0.188  0.562               -0.226 -0.398 -0.578 -0.301  0.109 
+        Comp.11 Comp.12 Comp.13 Comp.14 Comp.15 Comp.16
+acc_x                                                  
+acc_y                                                  
+acc_z                                                  
+quat_x  -0.199  -0.153          -0.700          -0.230 
+quat_y   0.122   0.239           0.550          -0.113 
+quat_z  -0.167                   0.108  -0.616   0.259 
+quat_w                  -0.373           0.471   0.596 
+euler_x  0.218   0.153  -0.400  -0.279  -0.548  -0.143 
+euler_y  0.102   0.193   0.314  -0.212  -0.231   0.693 
+euler_z  0.305  -0.566  -0.352   0.140  -0.132         
+mag_x           -0.544   0.615                         
+mag_y    0.696   0.347   0.281  -0.148   0.125         
+mag_z   -0.500   0.306           0.115                 
+gyr_x   -0.133                                         
+gyr_y    0.104                                         
+gyr_z                                                  
+
+               Comp.1 Comp.2 Comp.3 Comp.4 Comp.5 Comp.6 Comp.7 Comp.8 Comp.9
+SS loadings     1.000  1.000  1.000  1.000  1.000  1.000  1.000  1.000  1.000
+Proportion Var  0.062  0.062  0.063  0.062  0.063  0.063  0.062  0.063  0.063
+Cumulative Var  0.062  0.125  0.188  0.250  0.312  0.375  0.438  0.500  0.563
+               Comp.10 Comp.11 Comp.12 Comp.13 Comp.14 Comp.15 Comp.16
+SS loadings      1.000   1.000   1.000   1.000   1.000   1.000   1.000
+Proportion Var   0.063   0.063   0.062   0.063   0.062   0.062   0.062
+Cumulative Var   0.625   0.688   0.750   0.813   0.875   0.938   1.000
+> ## The signs of the columns are arbitrary
+> 
+> fig.dir = "fig/"
+> name = "PCA_Rollschuhe_1"
+> 
+> ####
+> 
+> title.name <- paste0("Screeplot:_", name)
+> file.name <- paste0(fig.dir,title.name,".pdf")
+>     
+> pdf(file.name)
+> plot(pc.cr) # shows a screeplot.
+> dev.off()
+null device 
+          1 
+> 
+> #####
+> 
+> title.name <- paste0("Biplot:_", name)
+> file.name <- paste0(fig.dir,title.name,".pdf")
+>     
+> pdf(file.name)
+> biplot(pc.cr)
+> dev.off()
+null device 
+          1 
+> 
+> 
+> 
+> 
+> 
+> 
+> proc.time()
+   user  system elapsed 
+  1.161   0.070   1.638 

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "convert_pickle_to_csv.py", line 36, in <module>
+    new_entry = np.concatenate((stroke_number_vector.T, label_vector.T, stroke_data), axis=1)
+ValueError: all the input array dimensions except for the concatenation axis must match exactly

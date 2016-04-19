@@ -1,0 +1,101 @@
+subset                  package:base                   R Documentation
+
+_S_u_b_s_e_t_t_i_n_g _V_e_c_t_o_r_s, _M_a_t_r_i_c_e_s _a_n_d _D_a_t_a _F_r_a_m_e_s
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Return subsets of vectors, matrices or data frames which meet
+     conditions.
+
+_U_s_a_g_e:
+
+     subset(x, ...)
+     
+     ## Default S3 method:
+     subset(x, subset, ...)
+     
+     ## S3 method for class 'matrix'
+     subset(x, subset, select, drop = FALSE, ...)
+     
+     ## S3 method for class 'data.frame'
+     subset(x, subset, select, drop = FALSE, ...)
+     
+_A_r_g_u_m_e_n_t_s:
+
+       x: object to be subsetted.
+
+  subset: logical expression indicating elements or rows to keep:
+          missing values are taken as false.
+
+  select: expression, indicating columns to select from a data frame.
+
+    drop: passed on to ‘[’ indexing operator.
+
+     ...: further arguments to be passed to or from other methods.
+
+_D_e_t_a_i_l_s:
+
+     This is a generic function, with methods supplied for matrices,
+     data frames and vectors (including lists).  Packages and users can
+     add further methods.
+
+     For ordinary vectors, the result is simply ‘x[subset &
+     !is.na(subset)]’.
+
+     For data frames, the ‘subset’ argument works on the rows.  Note
+     that ‘subset’ will be evaluated in the data frame, so columns can
+     be referred to (by name) as variables in the expression (see the
+     examples).
+
+     The ‘select’ argument exists only for the methods for data frames
+     and matrices.  It works by first replacing column names in the
+     selection expression with the corresponding column numbers in the
+     data frame and then using the resulting integer vector to index
+     the columns.  This allows the use of the standard indexing
+     conventions so that for example ranges of columns can be specified
+     easily, or single columns can be dropped (see the examples).
+
+     The ‘drop’ argument is passed on to the indexing method for
+     matrices and data frames: note that the default for matrices is
+     different from that for indexing.
+
+     Factors may have empty levels after subsetting; unused levels are
+     not automatically removed.  See ‘droplevels’ for a way to drop all
+     unused levels from a data frame.
+
+_V_a_l_u_e:
+
+     An object similar to ‘x’ contain just the selected elements (for a
+     vector), rows and columns (for a matrix or data frame), and so on.
+
+_W_a_r_n_i_n_g:
+
+     This is a convenience function intended for use interactively.
+     For programming it is better to use the standard subsetting
+     functions like ‘[’, and in particular the non-standard evaluation
+     of argument ‘subset’ can have unanticipated consequences.
+
+_A_u_t_h_o_r(_s):
+
+     Peter Dalgaard and Brian Ripley
+
+_S_e_e _A_l_s_o:
+
+     ‘[’, ‘transform’ ‘droplevels’
+
+_E_x_a_m_p_l_e_s:
+
+     subset(airquality, Temp > 80, select = c(Ozone, Temp))
+     subset(airquality, Day == 1, select = -Temp)
+     subset(airquality, select = Ozone:Wind)
+     
+     with(airquality, subset(Ozone, Temp > 80))
+     
+     ## sometimes requiring a logical 'subset' argument is a nuisance
+     nm <- rownames(state.x77)
+     start_with_M <- nm %in% grep("^M", nm, value = TRUE)
+     subset(state.x77, start_with_M, Illiteracy:Murder)
+     # but in recent versions of R this can simply be
+     subset(state.x77, grepl("^M", nm), Illiteracy:Murder)
+     
+

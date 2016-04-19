@@ -1,0 +1,153 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> ## load segmented data
+> ## for each parameter
+> ##   for each unique stroke label ("uK1", etc)
+> ##       plot all phase diagrams for different occurences of that label (each different color):
+> ##       find the derivative:  d_param
+> ##       plot(parameter, d_param)
+> 
+> rm(list = ls())
+> 
+> infilename <-  "../data/segmented_flat.Rdata"
+> load(infilename)
+> 
+> library(ggplot2)
+> 
+> param_names <- names(pen.data)[-3:-1]
+> for (param_name in param_names) {
++ 
++     print(param_name)
++     
++     unique_labels <- unique(pen.data$label)
++     for (unique_label in unique_labels) {
++ 
++         print(unique_label)
++         
++         s = subset(pen.data, label == unique_label)
++         stroke_list = split(s, s$Stroke_ID)
++ 
++         ## for storing phase information for all strokes with same unique label
++         merged_data <- data.frame()
++ 
++         for (indiv_stroke in stroke_list){
++             
++             param <- indiv_stroke$accel_x
++             d_param <- diff(param)
++             param <- param[-1]
++             
++             variance <- var(param)
++             param_scaled <- scale(param, center = TRUE, scale = variance)
++ 
++             var_d <- var(d_param)
++             d_param_scaled <- scale(d_param, center = TRUE, scale = var_d)
++ 
++             
++ 
++             Stroke_ID <- indiv_stroke$Stroke_ID[-1]
++             ##    label <- indiv_stroke$label
++             label <- rep(unique_label, length(param_scaled))
++             merged_data <- rbind(merged_data, data.frame(Stroke_ID, label, param_scaled, d_param_scaled))
++             
++         }
++         
++         ggplot(merged_data, aes(x = param_scaled, y = d_param_scaled, color=Stroke_ID)) +
++             geom_path() +
++                 ggtitle(paste(param_names, unique(label), sep= "_"))
++ 
++         ggsave(paste("label_figs/", param_name, unique_label, "scaled_phase.pdf", sep="_"))
++ 
++     }
++ }
+[1] "accel_x"
+[1] "K1"
+Saving 7 x 7 in image
+[1] "K2"
+Saving 7 x 7 in image
+[1] "K3"
+Saving 7 x 7 in image
+[1] "e"
+Saving 7 x 7 in image
+[1] "r"
+Saving 7 x 7 in image
+[1] "z"
+Saving 7 x 7 in image
+[1] "R1"
+Saving 7 x 7 in image
+[1] "R2"
+Saving 7 x 7 in image
+[1] "o"
+Saving 7 x 7 in image
+[1] "l"
+Saving 7 x 7 in image
+[1] "s"
+Saving 7 x 7 in image
+[1] "c"
+Saving 7 x 7 in image
+[1] "h"
+Saving 7 x 7 in image
+[1] "u"
+Saving 7 x 7 in image
+[1] "S"
+Saving 7 x 7 in image
+[1] "p"
+Saving 7 x 7 in image
+[1] "i1"
+Saving 7 x 7 in image
+[1] "i2"
+Saving 7 x 7 in image
+[1] "n"
+Saving 7 x 7 in image
+[1] "O"
+Saving 7 x 7 in image
+[1] "a"
+Saving 7 x 7 in image
+[1] "P1"
+Saving 7 x 7 in image
+[1] "P2"
+Saving 7 x 7 in image
+[1] "accel_y"
+[1] "K1"
+Saving 7 x 7 in image
+[1] "K2"
+Saving 7 x 7 in image
+[1] "K3"
+Saving 7 x 7 in image
+[1] "e"
+Saving 7 x 7 in image
+[1] "r"
+Saving 7 x 7 in image
+[1] "z"
+Saving 7 x 7 in image
+[1] "R1"
+Saving 7 x 7 in image
+[1] "R2"
+Saving 7 x 7 in image
+[1] "o"
+Saving 7 x 7 in image
+[1] "l"
+Saving 7 x 7 in image
+[1] "s"
+Saving 7 x 7 in image
+[1] "c"
+Saving 7 x 7 in image
+[1] "h"

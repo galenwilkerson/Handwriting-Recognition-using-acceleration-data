@@ -1,0 +1,1973 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/QAPage"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/ados" async="" type="text/javascript"></script>
+    
+    <title>python - Heatmap in matplotlib with pcolor? - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=038622610830">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=fd7230a85918">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=fde65a5a78c6">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Heatmap in matplotlib with pcolor?">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I'd like to make a heatmap like this (shown on FlowingData):
+
+
+The source data is here, but random data and labels would be fine to use, i.e.
+
+import numpy
+column_labels = list('ABCD')
+row_labels = ">
+    <meta property="og:url" content="http://stackoverflow.com/questions/14391959/heatmap-in-matplotlib-with-pcolor">
+    <link rel="canonical" href="http://stackoverflow.com/questions/14391959/heatmap-in-matplotlib-with-pcolor">
+
+    
+    
+    <script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/quant.js" async=""></script><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/beacon.js" async=""></script><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/analytics.js" async=""></script><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/ados.js" async="" type="text/javascript"></script><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/jquery.js"></script>
+    <script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/stub.js"></script>
+    <link rel="stylesheet" type="text/css" href="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/all.css">
+    
+    <link rel="alternate" type="application/atom+xml" title="Feed for question 'Heatmap in matplotlib with pcolor?'" href="http://stackoverflow.com/feeds/question/14391959">
+    <script>
+        
+        StackExchange.ready(function () {
+                
+                StackExchange.using("snippets", function () {
+                    StackExchange.snippets.initSnippetRenderer();
+                });
+                
+
+            StackExchange.using("postValidation", function () {
+                StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+            });
+
+            
+            StackExchange.question.init({showAnswerHelp:true,totalCommentCount:2,shownCommentCount:2,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:14391959});
+
+            styleCode();
+
+                StackExchange.realtime.subscribeToQuestion('1', '14391959');
+            
+                    });
+    </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1415191358,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"7ed44593e15738d4eddfe0526c0665b3","isAnonymous":true,"ab":{"homepage_recommended_algo":{"v":"c","g":1}}}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"462eed93243a","js/moderator.en.js":"3bf88d4bfb80","js/full-anon.en.js":"73077a557306","js/full.en.js":"91631f8e1ecf","js/wmd.en.js":"b114d6a71df6","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"909ba559e645","js/help.en.js":"ce2977cf4348","js/tageditor.en.js":"63052db07564","js/tageditornew.en.js":"e50fe22cc0a5","js/inline-tag-editing.en.js":"1a5cabd8e30a","js/revisions.en.js":"0dfb2daeabd0","js/review.en.js":"10cc83453f0a","js/tagsuggestions.en.js":"bc2c996faeda","js/post-validation.en.js":"d6f09029c0d1","js/explore-qlist.en.js":"4e6f969d97ee","js/events.en.js":"6435f26828ca","js/keyboard-shortcuts.en.js":"8e4afec6fd8f","js/external-editor.en.js":"2066101db5f0","js/external-editor.en.js":"2066101db5f0","js/snippet-javascript.en.js":"9bd59551ea75","js/snippet-javascript-codemirror.en.js":"901ef257ba67"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/full-anon.js" async=""></script><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/snippet-javascript.js" async=""></script><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/post-validation.js" async=""></script><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/prettify-full.js" async=""></script><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/external-editor.js" async=""></script><script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/adFeedback.js" type="text/javascript"></script><link href="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/adFeedback.css" rel="stylesheet"><link rel="stylesheet" type="text/css" href="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/sidebar.css"></head>
+<body class="question-page new-topbar" lang="">
+    <noscript><div id="noscript-padding"></div></noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+            <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+                    <a href="http://blog.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:7 })">blog</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+                        <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f14391959%2fheatmap-in-matplotlib-with-pcolor" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a>
+                    or
+                    <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f14391959%2fheatmap-in-matplotlib-with-pcolor" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a>
+
+                    to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 130 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                    <span class="topbar-menu-links">
+                            <a href="https://stackoverflow.com/users/signup?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f14391959%2fheatmap-in-matplotlib-with-pcolor" class="login-link">sign up</a>
+                            <a href="https://stackoverflow.com/users/login?returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f14391959%2fheatmap-in-matplotlib-with-pcolor" class="login-link">log in</a>
+                            <a href="http://stackoverflow.com/tour">tour</a>
+
+                            <a href="#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="/search" method="get" autocomplete="off">
+                    <input name="q" placeholder="search" tabindex="1" autocomplete="off" maxlength="240" type="text">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header" class="headeranon">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs mainnavsanon">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+	<link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+            <a href="http://stackoverflow.com/tour" id="tell-me-more" class="button">Take the 2-minute tour</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a question and answer site for 
+professional and enthusiast programmers. It's 100% free, no registration
+ required.
+        </div>        
+    </div>
+    <script>
+        $('#tell-me-more').click(function () {
+            var clickSource = $("body").attr("class") + '-mini';
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+            }
+
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("aboutpage.click", { aboutclick_location: clickSource } , true);
+            });
+        });
+        $('#herobox-mini #close').click(function () {
+            StackExchange.using("gps", function () {
+                StackExchange.gps.track("hero.action", { hero_action_type: "close" }, true);
+            });
+            $.cookie("hero", "none", { path: "/", expires: 365 });
+            var $hero = $("#herobox-mini");
+            $hero.slideUp('fast', function () { $hero.remove(); });
+            return false;
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+			<h1 itemprop="name"><a href="http://stackoverflow.com/questions/14391959/heatmap-in-matplotlib-with-pcolor" class="question-hyperlink">Heatmap in matplotlib with pcolor?</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="14391959" id="question">
+
+    <script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk514783642",4).setZone(43) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk514783642"><a href="http://engine.adzerk.net/r?e=eyJhdiI6MTczNjIsImF0Ijo0LCJidCI6MCwiY20iOjE3MjQyMSwiY2giOjExNzgsImNyIjo1NDk1MjgsImRpIjoiZGVmZWQzOWQzODI4NDA4ZWJlZjJiZDYwNGQ1NjgwNWUiLCJkbSI6MSwiZmMiOjU2NDQ5MSwiZmwiOjMwMTQ1OSwiaXAiOiIxMzAuMTQ5LjE0LjEzMSIsImt3IjoicHl0aG9uLG1hdHBsb3RsaWIsZGF0YS12aXN1YWxpemF0aW9uLGhlYXRtYXAiLCJtayI6ImRhdGEtdmlzdWFsaXphdGlvbiIsIm53IjoyMiwicGMiOjYuNCwicHIiOjU3OTIsInJ0IjoyLCJyZiI6Imh0dHA6Ly93d3cuZ29vZ2xlLmRlL3VybD9zYT10JnJjdD1qJnE9JmVzcmM9cyZzb3VyY2U9d2ViJmNkPTMmdmVkPTBDRHdRRmpBQyZ1cmw9aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8xNDM5MTk1OS9oZWF0bWFwLWluLW1hdHBsb3RsaWItd2l0aC1wY29sb3ImZWk9T1J0YVZKNjJKWWZCT2JMNGdZZ0QmdXNnPUFGUWpDTkhzSWhLYm43aHFJNWhicXNnNlFSZDlJYWltMGcmYnZtPWJ2Ljc4Njc3NDc0LGQuWldVIiwic3QiOjgyNzcsInVrIjoidWUxLTFkZGQwZDgxMTQxZDQyYzg5ZWFmMTVkYWQ4Mjc1ODFhIiwiem4iOjQzLCJ0cyI6MTQxNTE5MTM1OTE5OCwidXIiOiJodHRwOi8vd3d3LmxpZ2h0bmluZ2NoYXJ0LmNvbS8ifQ&amp;s=g__2R9pM4Kt3UiMUKFtKSGZjQh8" rel="nofollow" target="_blank" title=""><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/94a1fceee3cf42a8bd1fce07158171ac.jpg" title="" alt="" border="0" height="90" width="728"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/i_003.gif" style="position:absolute;" border="0" height="0px" width="0px"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input name="_id_" value="14391959" type="hidden">
+    <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">26</span>
+    <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+    
+    <a class="star-off" href="#" title="This is a favorite question (click again to undo)">favorite</a>
+    <div class="favoritecount"><b>19</b></div>   
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+        <p>I'd like to make a heatmap like this (shown on <a href="http://flowingdata.com/2010/01/21/how-to-make-a-heatmap-a-quick-and-easy-solution/">FlowingData</a>):
+<img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/pjnUL.png" alt="heatmap"></p>
+
+<p>The source data is <a href="http://datasets.flowingdata.com/ppg2008.csv">here</a>, but random data and labels would be fine to use, i.e.</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="kwd">import</span><span class="pln"> numpy
+column_labels </span><span class="pun">=</span><span class="pln"> list</span><span class="pun">(</span><span class="str">'ABCD'</span><span class="pun">)</span><span class="pln">
+row_labels </span><span class="pun">=</span><span class="pln"> list</span><span class="pun">(</span><span class="str">'WXYZ'</span><span class="pun">)</span><span class="pln">
+data </span><span class="pun">=</span><span class="pln"> numpy</span><span class="pun">.</span><span class="pln">random</span><span class="pun">.</span><span class="pln">rand</span><span class="pun">(</span><span class="lit">4</span><span class="pun">,</span><span class="lit">4</span><span class="pun">)</span></code></pre>
+
+<p>Making the heatmap is easy enough in matplotlib:</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="kwd">from</span><span class="pln"> matplotlib </span><span class="kwd">import</span><span class="pln"> pyplot </span><span class="kwd">as</span><span class="pln"> plt
+heatmap </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">pcolor</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span></code></pre>
+
+<p>And I even found a <a href="http://www.scipy.org/Cookbook/Matplotlib/Show_colormaps">colormap</a> arguments that look about right: <code>heatmap = plt.pcolor(data, cmap=matplotlib.cm.Blues)</code></p>
+
+<p>But beyond that, I can't figure out how to display labels for the 
+columns and rows and display the data in the proper orientation (origin 
+at the top left instead of bottom left).</p>
+
+<p>Attempts to manipulate <code>heatmap.axes</code> (e.g. <code>heatmap.axes.set_xticklabels = column_labels</code>) have all failed. What am I missing here?</p>
+
+<p><strong>UPDATE:</strong> </p>
+
+<p>Thanks to <a href="http://stackoverflow.com/users/1552748/paul-h">Paul H</a>, and <a href="http://stackoverflow.com/users/190597/unutbu">unutbu</a> (who answered <a href="http://stackoverflow.com/questions/14406214/moving-x-axis-to-the-top-of-a-plot-in-matplotlib">this question</a>), I have some pretty nice-looking output:</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="kwd">import</span><span class="pln"> matplotlib</span><span class="pun">.</span><span class="pln">pyplot </span><span class="kwd">as</span><span class="pln"> plt
+</span><span class="kwd">import</span><span class="pln"> numpy </span><span class="kwd">as</span><span class="pln"> np
+column_labels </span><span class="pun">=</span><span class="pln"> list</span><span class="pun">(</span><span class="str">'ABCD'</span><span class="pun">)</span><span class="pln">
+row_labels </span><span class="pun">=</span><span class="pln"> list</span><span class="pun">(</span><span class="str">'WXYZ'</span><span class="pun">)</span><span class="pln">
+data </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">random</span><span class="pun">.</span><span class="pln">rand</span><span class="pun">(</span><span class="lit">4</span><span class="pun">,</span><span class="lit">4</span><span class="pun">)</span><span class="pln">
+fig</span><span class="pun">,</span><span class="pln"> ax </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">subplots</span><span class="pun">()</span><span class="pln">
+heatmap </span><span class="pun">=</span><span class="pln"> ax</span><span class="pun">.</span><span class="pln">pcolor</span><span class="pun">(</span><span class="pln">data</span><span class="pun">,</span><span class="pln"> cmap</span><span class="pun">=</span><span class="pln">plt</span><span class="pun">.</span><span class="pln">cm</span><span class="pun">.</span><span class="typ">Blues</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># put the major ticks at the middle of each cell</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_xticks</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(</span><span class="pln">data</span><span class="pun">.</span><span class="pln">shape</span><span class="pun">[</span><span class="lit">0</span><span class="pun">])+</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_yticks</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(</span><span class="pln">data</span><span class="pun">.</span><span class="pln">shape</span><span class="pun">[</span><span class="lit">1</span><span class="pun">])+</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># want a more natural, table-like display</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">invert_yaxis</span><span class="pun">()</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">xaxis</span><span class="pun">.</span><span class="pln">tick_top</span><span class="pun">()</span><span class="pln">
+
+ax</span><span class="pun">.</span><span class="pln">set_xticklabels</span><span class="pun">(</span><span class="pln">row_labels</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_yticklabels</span><span class="pun">(</span><span class="pln">column_labels</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+plt</span><span class="pun">.</span><span class="pln">show</span><span class="pun">()</span></code></pre>
+
+<p>And here's the output:</p>
+
+<p><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/kXxtE.png" alt="Matplotlib HeatMap"></p>
+
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/python" class="post-tag js-gps-track" title="show questions tagged 'python'" rel="tag">python</a> <a href="http://stackoverflow.com/questions/tagged/matplotlib" class="post-tag js-gps-track" title="show questions tagged 'matplotlib'" rel="tag">matplotlib</a> <a href="http://stackoverflow.com/questions/tagged/data-visualization" class="post-tag js-gps-track" title="show questions tagged 'data-visualization'" rel="tag">data-visualization</a> <a href="http://stackoverflow.com/questions/tagged/heatmap" class="post-tag js-gps-track" title="show questions tagged 'heatmap'" rel="tag">heatmap</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/14391959" title="short permalink to this question" class="short-link" id="link-post-14391959">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/14391959/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/14391959/revisions" title="show all edits to this post">edited <span title="2013-01-18 19:48:51Z" class="relativetime">Jan 18 '13 at 19:48</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+    <td class="post-signature owner">
+        <div class="user-info user-hover">
+    <div class="user-action-time">
+        asked <span title="2013-01-18 03:31:17Z" class="relativetime">Jan 18 '13 at 3:31</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2683/jason-sundram"><div class="gravatar-wrapper-32"><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/d4a6fedba56c0767d6e8613007fb188e.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2683/jason-sundram">Jason Sundram</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">3,384</span><span title="6 gold badges"><span class="badge1"></span><span class="badgecount">6</span></span><span title="33 silver badges"><span class="badge2"></span><span class="badgecount">33</span></span><span title="66 bronze badges"><span class="badge3"></span><span class="badgecount">66</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-14391959" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-20021666" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">There's a lot of overlap with <a href="http://stackoverflow.com/questions/10975402/matplotlib-heat-map-set-white-color-some-field">this heatmap question</a> - might be some good info for you there.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/206192/jozzas" title="3388 reputation" class="comment-user">jozzas</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment20021666_14391959"><span title="2013-01-18 03:39:14Z" class="relativetime-clean">Jan 18 '13 at 3:39</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-20023058" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The label techniques from this post might help <a href="http://stackoverflow.com/questions/6352740/matplotlib-label-each-bin" title="matplotlib label each bin">stackoverflow.com/questions/6352740/matplotlib-label-each-bin</a></span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/380231/tcaswell" title="22459 reputation" class="comment-user">tcaswell</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment20023058_14391959"><span title="2013-01-18 05:27:02Z" class="relativetime-clean">Jan 18 '13 at 5:27</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-14391959" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="#" onclick=""></a>
+            </div>
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								4 Answers
+                                <span style="display:none;" itemprop="answerCount">4</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/14391959/heatmap-in-matplotlib-with-pcolor?answertab=active#tab-top" title="Answers with the latest activity first">active</a>
+        <a href="http://stackoverflow.com/questions/14391959/heatmap-in-matplotlib-with-pcolor?answertab=oldest#tab-top" title="Answers in the order they were provided">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/14391959/heatmap-in-matplotlib-with-pcolor?answertab=votes#tab-top" title="Answers with the highest score first">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="16124677"></a>
+<div id="answer-16124677" class="answer accepted-answer" data-answerid="16124677" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input name="_id_" value="16124677" type="hidden">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">40</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>This is late, but here is my python implementation of the flowingdata NBA heatmap.</p>
+
+<p><strong>updated:1/4/2014</strong>: thanks everyone</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="com"># -*- coding: utf-8 -*-</span><span class="pln">
+</span><span class="com"># &lt;nbformat&gt;3.0&lt;/nbformat&gt;</span><span class="pln">
+
+</span><span class="com"># ------------------------------------------------------------------------</span><span class="pln">
+</span><span class="com"># Filename   : heatmap.py</span><span class="pln">
+</span><span class="com"># Date       : 2013-04-19</span><span class="pln">
+</span><span class="com"># Updated    : 2014-01-04</span><span class="pln">
+</span><span class="com"># Author     : @LotzJoe &gt;&gt; Joe Lotz</span><span class="pln">
+</span><span class="com"># Description: My attempt at reproducing the FlowingData graphic in Python</span><span class="pln">
+</span><span class="com"># Source     : http://flowingdata.com/2010/01/21/how-to-make-a-heatmap-a-quick-and-easy-solution/</span><span class="pln">
+</span><span class="com">#</span><span class="pln">
+</span><span class="com"># Other Links:</span><span class="pln">
+</span><span class="com">#     http://stackoverflow.com/questions/14391959/heatmap-in-matplotlib-with-pcolor</span><span class="pln">
+</span><span class="com">#</span><span class="pln">
+</span><span class="com"># ------------------------------------------------------------------------</span><span class="pln">
+
+</span><span class="kwd">import</span><span class="pln"> matplotlib</span><span class="pun">.</span><span class="pln">pyplot </span><span class="kwd">as</span><span class="pln"> plt
+</span><span class="kwd">import</span><span class="pln"> pandas </span><span class="kwd">as</span><span class="pln"> pd
+</span><span class="kwd">from</span><span class="pln"> urllib2 </span><span class="kwd">import</span><span class="pln"> urlopen
+</span><span class="kwd">import</span><span class="pln"> numpy </span><span class="kwd">as</span><span class="pln"> np
+</span><span class="pun">%</span><span class="pln">pylab inline
+
+page </span><span class="pun">=</span><span class="pln"> urlopen</span><span class="pun">(</span><span class="str">"http://datasets.flowingdata.com/ppg2008.csv"</span><span class="pun">)</span><span class="pln">
+nba </span><span class="pun">=</span><span class="pln"> pd</span><span class="pun">.</span><span class="pln">read_csv</span><span class="pun">(</span><span class="pln">page</span><span class="pun">,</span><span class="pln"> index_col</span><span class="pun">=</span><span class="lit">0</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># Normalize data columns</span><span class="pln">
+nba_norm </span><span class="pun">=</span><span class="pln"> </span><span class="pun">(</span><span class="pln">nba </span><span class="pun">-</span><span class="pln"> nba</span><span class="pun">.</span><span class="pln">mean</span><span class="pun">())</span><span class="pln"> </span><span class="pun">/</span><span class="pln"> </span><span class="pun">(</span><span class="pln">nba</span><span class="pun">.</span><span class="pln">max</span><span class="pun">()</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> nba</span><span class="pun">.</span><span class="pln">min</span><span class="pun">())</span><span class="pln">
+
+</span><span class="com"># Sort data according to Points, lowest to highest</span><span class="pln">
+</span><span class="com"># This was just a design choice made by Yau</span><span class="pln">
+</span><span class="com"># inplace=False (default) -&gt;thanks SO user d1337</span><span class="pln">
+nba_sort </span><span class="pun">=</span><span class="pln"> nba_norm</span><span class="pun">.</span><span class="pln">sort</span><span class="pun">(</span><span class="str">'PTS'</span><span class="pun">,</span><span class="pln"> ascending</span><span class="pun">=</span><span class="kwd">True</span><span class="pun">)</span><span class="pln">
+
+nba_sort</span><span class="pun">[</span><span class="str">'PTS'</span><span class="pun">].</span><span class="pln">head</span><span class="pun">(</span><span class="lit">10</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># Plot it out</span><span class="pln">
+fig</span><span class="pun">,</span><span class="pln"> ax </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">subplots</span><span class="pun">()</span><span class="pln">
+heatmap </span><span class="pun">=</span><span class="pln"> ax</span><span class="pun">.</span><span class="pln">pcolor</span><span class="pun">(</span><span class="pln">nba_sort</span><span class="pun">,</span><span class="pln"> cmap</span><span class="pun">=</span><span class="pln">plt</span><span class="pun">.</span><span class="pln">cm</span><span class="pun">.</span><span class="typ">Blues</span><span class="pun">,</span><span class="pln"> alpha</span><span class="pun">=</span><span class="lit">0.8</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># Format</span><span class="pln">
+fig </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">gcf</span><span class="pun">()</span><span class="pln">
+fig</span><span class="pun">.</span><span class="pln">set_size_inches</span><span class="pun">(</span><span class="lit">8</span><span class="pun">,</span><span class="pln"> </span><span class="lit">11</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># turn off the frame</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_frame_on</span><span class="pun">(</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># put the major ticks at the middle of each cell</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_yticks</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(</span><span class="pln">nba_sort</span><span class="pun">.</span><span class="pln">shape</span><span class="pun">[</span><span class="lit">0</span><span class="pun">])</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_xticks</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(</span><span class="pln">nba_sort</span><span class="pun">.</span><span class="pln">shape</span><span class="pun">[</span><span class="lit">1</span><span class="pun">])</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> </span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># want a more natural, table-like display</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">invert_yaxis</span><span class="pun">()</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">xaxis</span><span class="pun">.</span><span class="pln">tick_top</span><span class="pun">()</span><span class="pln">
+
+</span><span class="com"># Set the labels</span><span class="pln">
+
+</span><span class="com"># label source:https://en.wikipedia.org/wiki/Basketball_statistics</span><span class="pln">
+labels </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[</span><span class="pln">
+    </span><span class="str">'Games'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Minutes'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Points'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Field goals made'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Field goal attempts'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Field goal percentage'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Free throws made'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Free throws attempts'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Free throws percentage'</span><span class="pun">,</span><span class="pln">
+    </span><span class="str">'Three-pointers made'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Three-point attempt'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Three-point percentage'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Offensive rebounds'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Defensive rebounds'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Total rebounds'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Assists'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Steals'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Blocks'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Turnover'</span><span class="pun">,</span><span class="pln"> </span><span class="str">'Personal foul'</span><span class="pun">]</span><span class="pln">
+
+</span><span class="com"># note I could have used nba_sort.columns but made "labels" instead</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_xticklabels</span><span class="pun">(</span><span class="pln">labels</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_yticklabels</span><span class="pun">(</span><span class="pln">nba_sort</span><span class="pun">.</span><span class="pln">index</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># rotate the</span><span class="pln">
+plt</span><span class="pun">.</span><span class="pln">xticks</span><span class="pun">(</span><span class="pln">rotation</span><span class="pun">=</span><span class="lit">90</span><span class="pun">)</span><span class="pln">
+
+ax</span><span class="pun">.</span><span class="pln">grid</span><span class="pun">(</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># Turn off all the ticks</span><span class="pln">
+ax </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">gca</span><span class="pun">()</span><span class="pln">
+
+</span><span class="kwd">for</span><span class="pln"> t </span><span class="kwd">in</span><span class="pln"> ax</span><span class="pun">.</span><span class="pln">xaxis</span><span class="pun">.</span><span class="pln">get_major_ticks</span><span class="pun">():</span><span class="pln">
+    t</span><span class="pun">.</span><span class="pln">tick1On </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">False</span><span class="pln">
+    t</span><span class="pun">.</span><span class="pln">tick2On </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">False</span><span class="pln">
+</span><span class="kwd">for</span><span class="pln"> t </span><span class="kwd">in</span><span class="pln"> ax</span><span class="pun">.</span><span class="pln">yaxis</span><span class="pun">.</span><span class="pln">get_major_ticks</span><span class="pun">():</span><span class="pln">
+    t</span><span class="pun">.</span><span class="pln">tick1On </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">False</span><span class="pln">
+    t</span><span class="pun">.</span><span class="pln">tick2On </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">False</span></code></pre>
+
+<p>The output looks like this:
+<img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/7B4Dk.png" alt="flowingdata-like nba heatmap"></p>
+
+<p>There's an ipython notebook with all this code <a href="http://nbviewer.ipython.org/5427209">here</a>. I've learned a lot from 'overflow so hopefully someone will find this useful.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/16124677" title="short permalink to this answer" class="short-link" id="link-post-16124677">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/16124677/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/16124677/revisions" title="show all edits to this post">edited <span title="2014-01-05 02:15:33Z" class="relativetime">Jan 5 at 2:15</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-04-20 20:09:39Z" class="relativetime">Apr 20 '13 at 20:09</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1827947/joelotz"><div class="gravatar-wrapper-32"><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/cf92480a57eebb6cebf3b98c789d4066.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1827947/joelotz">joelotz</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">657</span><span title="4 silver badges"><span class="badge2"></span><span class="badgecount">4</span></span><span title="9 bronze badges"><span class="badge3"></span><span class="badgecount">9</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-16124677" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="4" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-23036751" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Please don't post link-only answers. At least summarize your solution here.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/2046372/cairnarvon" title="6337 reputation" class="comment-user">Cairnarvon</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment23036751_16124677"><span title="2013-04-21 03:51:19Z" class="relativetime-clean">Apr 21 '13 at 3:51</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-23052472" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This is awesome, thank you! I
+ posted the code from your link into your question, as @Cairnarvon 
+should have done, instead of presumably downvoting you.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/2683/jason-sundram" title="3384 reputation" class="comment-user owner">Jason Sundram</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment23052472_16124677"><span title="2013-04-21 22:02:58Z" class="relativetime-clean">Apr 21 '13 at 22:02</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-23125212" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@JasonSundram Thanks, lesson learned!</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1827947/joelotz" title="657 reputation" class="comment-user">joelotz</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment23125212_16124677"><span title="2013-04-23 19:51:58Z" class="relativetime-clean">Apr 23 '13 at 19:51</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-31399747" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">The above code didn't run in 
+iPythnon notebook. I had make some slight modification, changing 
+nba_sort = nba_norm.sort('PTS',ascending=True, inplace=True) to nba_sort
+ = nba_norm.copy() nba_sort.sort('PTS',ascending=True, inplace=True) as 
+the sort works by side-effect not by function return! Thanks for the 
+wonderful conceret example!</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/126164/yu-shen" title="195 reputation" class="comment-user">Yu Shen</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment31399747_16124677"><span title="2014-01-04 00:25:47Z" class="relativetime-clean">Jan 4 at 0:25</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-31426190" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Hmmm... you seems to be correct. Not sure what that is all about. I will correct the code. Thanks!</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1827947/joelotz" title="657 reputation" class="comment-user">joelotz</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment31426190_16124677"><span title="2014-01-05 02:09:43Z" class="relativetime-clean">Jan 5 at 2:09</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-16124677" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link " title="expand to show all comments on this post, or add one of your own" href="#" onclick="">show <b>4</b> more comments</a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk681969200",4).setZone(44) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk681969200"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjo4NDcsImNoIjoxMTc4LCJjciI6MTA3NjgsImRpIjoiYzMzN2U4OWJhYzA2NDVmYjg3MjE3OGIxM2ZhMTRjNjkiLCJkbSI6MSwiZmMiOjE2ODg1LCJmbCI6MjQ0NCwiaXAiOiIxMzAuMTQ5LjE0LjEzMSIsImt3IjoicHl0aG9uLG1hdHBsb3RsaWIsZGF0YS12aXN1YWxpemF0aW9uLGhlYXRtYXAiLCJudyI6MjIsInBjIjowLCJwciI6MTU2OCwicnQiOjEsInJmIjoiaHR0cDovL3d3dy5nb29nbGUuZGUvdXJsP3NhPXQmcmN0PWomcT0mZXNyYz1zJnNvdXJjZT13ZWImY2Q9MyZ2ZWQ9MENEd1FGakFDJnVybD1odHRwOi8vc3RhY2tvdmVyZmxvdy5jb20vcXVlc3Rpb25zLzE0MzkxOTU5L2hlYXRtYXAtaW4tbWF0cGxvdGxpYi13aXRoLXBjb2xvciZlaT1PUnRhVko2MkpZZkJPYkw0Z1lnRCZ1c2c9QUZRakNOSHNJaEtibjdocUk1aGJxc2c2UVJkOUlhaW0wZyZidm09YnYuNzg2Nzc0NzQsZC5aV1UiLCJzdCI6ODI3NywidWsiOiJ1ZTEtMWRkZDBkODExNDFkNDJjODllYWYxNWRhZDgyNzU4MWEiLCJ6biI6NDQsInRzIjoxNDE1MTkxMzU5MjAwLCJ1ciI6Imh0dHA6Ly9jYXJlZXJzLnN0YWNrb3ZlcmZsb3cuY29tL2pvYnMvdGVsZWNvbW11dGU_dXRtX3NvdXJjZT1zdGFja2V4Y2hhbmdlLmNvbSZ1dG1fbWVkaXVtPWFkJnV0bV9jYW1wYWlnbj1ob3VzZS1hZHMtY2F0Y2gtYWxsLWFsbC1zaXRlcyZ1dG1fY29udGVudD1sYi13b3JrLWZyb20taG9tZS1kb2cifQ&amp;s=mW4HsSJPBZPwcy75r-Zilq-2c7U" rel="nofollow" target="_blank" title=""><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/a61df59863ed44e59446d0b9bb805c56.jpg" title="" alt="" border="0" height="90" width="728"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/i_002.gif" style="position:absolute;" border="0" height="0px" width="0px"></div>
+  
+<a name="14392768"></a>
+<div id="answer-14392768" class="answer" data-answerid="14392768" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input name="_id_" value="14392768" type="hidden">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Main issue is that you first need to set the location of your x and y
+ ticks. Also, it helps to use the more object-oriented interface to 
+matplotlib. Namely, interact with the <code>axes</code> object directly.</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="kwd">import</span><span class="pln"> matplotlib</span><span class="pun">.</span><span class="pln">pyplot </span><span class="kwd">as</span><span class="pln"> plt
+</span><span class="kwd">import</span><span class="pln"> numpy </span><span class="kwd">as</span><span class="pln"> np
+column_labels </span><span class="pun">=</span><span class="pln"> list</span><span class="pun">(</span><span class="str">'ABCD'</span><span class="pun">)</span><span class="pln">
+row_labels </span><span class="pun">=</span><span class="pln"> list</span><span class="pun">(</span><span class="str">'WXYZ'</span><span class="pun">)</span><span class="pln">
+data </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">random</span><span class="pun">.</span><span class="pln">rand</span><span class="pun">(</span><span class="lit">4</span><span class="pun">,</span><span class="lit">4</span><span class="pun">)</span><span class="pln">
+fig</span><span class="pun">,</span><span class="pln"> ax </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">subplots</span><span class="pun">()</span><span class="pln">
+heatmap </span><span class="pun">=</span><span class="pln"> ax</span><span class="pun">.</span><span class="pln">pcolor</span><span class="pun">(</span><span class="pln">data</span><span class="pun">)</span><span class="pln">
+
+</span><span class="com"># put the major ticks at the middle of each cell, notice "reverse" use of dimension</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_yticks</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(</span><span class="pln">data</span><span class="pun">.</span><span class="pln">shape</span><span class="pun">[</span><span class="lit">0</span><span class="pun">])+</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_xticks</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(</span><span class="pln">data</span><span class="pun">.</span><span class="pln">shape</span><span class="pun">[</span><span class="lit">1</span><span class="pun">])+</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+
+
+ax</span><span class="pun">.</span><span class="pln">set_xticklabels</span><span class="pun">(</span><span class="pln">row_labels</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_yticklabels</span><span class="pun">(</span><span class="pln">column_labels</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+plt</span><span class="pun">.</span><span class="pln">show</span><span class="pun">()</span></code></pre>
+
+<p>Hope that helps.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/14392768" title="short permalink to this answer" class="short-link" id="link-post-14392768">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/14392768/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td class="post-signature" align="right">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/14392768/revisions" title="show all edits to this post">edited <span title="2013-03-02 20:48:00Z" class="relativetime">Mar 2 '13 at 20:48</span></a>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1585082/kkonrad"><div class="gravatar-wrapper-32"><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/56909a9a6040841bd6445fd9567cba7e.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1585082/kkonrad">kkonrad</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">401</span><span title="3 silver badges"><span class="badge2"></span><span class="badgecount">3</span></span><span title="13 bronze badges"><span class="badge3"></span><span class="badgecount">13</span></span>
+    </div>
+</div>    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2013-01-18 05:13:11Z" class="relativetime">Jan 18 '13 at 5:13</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1552748/paul-h"><div class="gravatar-wrapper-32"><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/7840b7a3579d2a7065d5c0aa804b5b92.jpg" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1552748/paul-h">Paul H</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">5,982</span><span title="12 silver badges"><span class="badge2"></span><span class="badgecount">12</span></span><span title="29 bronze badges"><span class="badge3"></span><span class="badgecount">29</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-14392768" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="1" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-20040455" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Thanks, @Paul H, that works beautifully. I was using the <code>heatmap.axes</code> property, which for some reason doesn't do anything.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/2683/jason-sundram" title="3384 reputation" class="comment-user owner">Jason Sundram</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment20040455_14392768"><span title="2013-01-18 16:20:15Z" class="relativetime-clean">Jan 18 '13 at 16:20</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-20041220" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Do you know how to move the x-axis labels to be at the top? I tried the obvious <code>ax.xaxis.set_label_position('top')</code> to no avail.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/2683/jason-sundram" title="3384 reputation" class="comment-user owner">Jason Sundram</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment20041220_14392768"><span title="2013-01-18 16:41:59Z" class="relativetime-clean">Jan 18 '13 at 16:41</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-20042559" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@JasonSundram You should open
+ a new question for moving the label positioning, because, that should 
+work and it is strange it does not.</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/380231/tcaswell" title="22459 reputation" class="comment-user">tcaswell</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment20042559_14392768"><span title="2013-01-18 17:23:21Z" class="relativetime-clean">Jan 18 '13 at 17:23</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-20046162" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of 'useful comment' votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@tcaswell, good point. New Question here: <a href="http://stackoverflow.com/questions/14406214/moving-x-axis-to-the-top-of-a-plot-in-matplotlib" title="moving x axis to the top of a plot in matplotlib">stackoverflow.com/questions/14406214/…</a></span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/2683/jason-sundram" title="3384 reputation" class="comment-user owner">Jason Sundram</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment20046162_14392768"><span title="2013-01-18 19:29:11Z" class="relativetime-clean">Jan 18 '13 at 19:29</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-20050069" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">@JasonSundram thanks for following up. That helps me a lot too!</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1552748/paul-h" title="5982 reputation" class="comment-user">Paul H</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment20050069_14392768"><span title="2013-01-18 21:54:26Z" class="relativetime-clean">Jan 18 '13 at 21:54</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-14392768" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link  dno" title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”."></a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link " title="expand to show all comments on this post, or add one of your own" href="#" onclick="">show <b>1</b> more comment</a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="17062100"></a>
+<div id="answer-17062100" class="answer" data-answerid="17062100" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input name="_id_" value="17062100" type="hidden">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>There seems to be an error in the accepted answer but I can't place a
+ comment (?!) so I am writing it here:
+inplace=True is used but the result is also expected to be placed in a 
+new variable which is then used along all the code. This won't work. So 
+Either modify to inplace=False or change all nba_sort to nba</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/17062100" title="short permalink to this answer" class="short-link" id="link-post-17062100">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/17062100/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-06-12 09:32:18Z" class="relativetime">Jun 12 '13 at 9:32</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1575294/d1337"><div class="gravatar-wrapper-32"><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/aa00655eb7637b8b3cef06e1861130d0.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1575294/d1337">d1337</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">150</span><span title="2 silver badges"><span class="badge2"></span><span class="badgecount">2</span></span><span title="10 bronze badges"><span class="badge3"></span><span class="badgecount">10</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-17062100" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-31426203" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Yes, you are correct. I will modify the code. Thanks</span>
+                –&nbsp;
+                    <a href="http://stackoverflow.com/users/1827947/joelotz" title="657 reputation" class="comment-user">joelotz</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="#comment31426203_17062100"><span title="2014-01-05 02:10:29Z" class="relativetime-clean">Jan 5 at 2:10</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-17062100" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="#" onclick=""></a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="19985981"></a>
+<div id="answer-19985981" class="answer" data-answerid="19985981" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+    <input name="_id_" value="19985981" type="hidden">
+    <a class="vote-up-off" title="This answer is useful">up vote</a>
+    <span itemprop="upvoteCount" class="vote-count-post ">0</span>
+    <a class="vote-down-off" title="This answer is not useful">down vote</a>
+    
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>Is there a reason you don't use:</p>
+
+<pre style="" class="lang-py prettyprint prettyprinted"><code><span class="pln">ax</span><span class="pun">.</span><span class="pln">set_xticklabels</span><span class="pun">(</span><span class="pln">column_labels</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_yticklabels</span><span class="pun">(</span><span class="pln">row_labels</span><span class="pun">,</span><span class="pln"> minor</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span></code></pre>
+
+<p>Otherwise, you seem to be labeling columns with the variable row_labels. </p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/19985981" title="short permalink to this answer" class="short-link" id="link-post-19985981">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/19985981/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td class="post-signature" align="right">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2013-11-14 18:54:47Z" class="relativetime">Nov 14 '13 at 18:54</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/2872876/user2872876"><div><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/94dd9613f4522c1b8174a81f9aa513dd.png" alt="" height="32" width="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/2872876/user2872876">user2872876</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">11</span><span title="1 bronze badge"><span class="badge3"></span><span class="badgecount">1</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+        
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-19985981" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+            <div id="comments-link-19985981" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span><a class="js-show-link comments-link dno" title="expand to show all comments on this post, or add one of your own" href="#" onclick=""></a>
+            </div>
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="/questions/14391959/answer/submit" method="post" class="post-form">
+						    <input id="post-id" value="14391959" type="hidden">
+                            <input id="qualityBanWarningShown" name="qualityBanWarningShown" value="false" type="hidden">
+                            <input name="referrer" value="http://www.google.de/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=3&amp;ved=0CDwQFjAC&amp;url=http%3A%2F%2Fstackoverflow.com%2Fquestions%2F14391959%2Fheatmap-in-matplotlib-with-pcolor&amp;ei=ORtaVJ62JYfBObL4gYgD&amp;usg=AFQjCNHsIhKbn7hqI5hbqsg6QRd9Iaim0g&amp;bvm=bv.78677474,d.ZWU" type="hidden">
+							<h2 class="space">Your Answer</h2>
+
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+            // Have to fire editor after snippets, if snippets enabled
+            if (StackExchange.options.snippets.enabled) {
+                StackExchange.using("snippets", function() {
+                    createEditor();
+                });
+            }
+            else {
+                createEditor();
+            }
+        });
+
+        function createEditor() {
+            prepareEditor({
+                heartbeatType: 'answer',
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                ,immediatelyShowMarkdownHelp:true
+                });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li style="left: 0px;" class="wmd-button" id="wmd-bold-button"><span style="background-position: 0px -20px;"></span></li><li style="left: 25px;" class="wmd-button" id="wmd-italic-button"><span style="background-position: -20px -20px;"></span></li><li style="left: 50px;" class="wmd-spacer" id="wmd-spacer1"><span style="background-position: -40px -20px;"></span></li><li style="left: 75px;" class="wmd-button" id="wmd-link-button"><span style="background-position: -40px -20px;"></span></li><li style="left: 100px;" class="wmd-button" id="wmd-quote-button"><span style="background-position: -60px -20px;"></span></li><li style="left: 125px;" class="wmd-button" id="wmd-code-button"><span style="background-position: -80px -20px;"></span></li><li style="left: 150px;" class="wmd-button" id="wmd-image-button"><span style="background-position: -100px -20px;"></span></li><li style="left: 175px;" class="wmd-spacer" id="wmd-spacer2"><span style="background-position: -120px -20px;"></span></li><li style="left: 200px;" class="wmd-button" id="wmd-olist-button"><span style="background-position: -120px -20px;"></span></li><li style="left: 225px;" class="wmd-button" id="wmd-ulist-button"><span style="background-position: -140px -20px;"></span></li><li style="left: 250px;" class="wmd-button" id="wmd-heading-button"><span style="background-position: -160px -20px;"></span></li><li style="left: 275px;" class="wmd-button" id="wmd-hr-button"><span style="background-position: -180px -20px;"></span></li><li style="left: 300px;" class="wmd-spacer" id="wmd-spacer3"><span style="background-position: -200px -20px;"></span></li><li style="left: 325px;" class="wmd-button" id="wmd-undo-button"><span style="background-position: -200px -20px;"></span></li><li style="left: 350px;" class="wmd-button" id="wmd-redo-button"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" value="7ed44593e15738d4eddfe0526c0665b3" type="hidden">
+        <input id="author" name="author" type="text">
+    </div>
+</div>
+							<div style="position: relative;">
+								
+            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?returnurl=%2fquestions%2f14391959%2fheatmap-in-matplotlib-with-pcolor%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Stack Exchange</span></p>
+                        </div>
+                    </div>
+                    <input name="manual-openid" class="manual-openid" type="hidden">
+                    <input name="use-facebook" class="use-facebook" value="false" type="hidden">
+                    <input name="use-google" class="use-google" value="false" type="hidden">
+                    <input class="submit-openid" value="Submit" style="display:none" type="button">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <script>
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" size="30" maxlength="30" tabindex="105" type="text">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" size="30" maxlength="100" tabindex="106" type="text">
+                    <span class="edit-field-overlay">required, but not shown</span>
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', '%2fquestions%2f14391959%2fheatmap-in-matplotlib-with-pcolor%23new-answer');
+                    }
+                );
+            </script>
+            <noscript>
+                        <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tr>
+                    <script>
+                StackExchange.ready(function () {
+                    StackExchange.helpers.bindHelpOverlayEvents($('.vm input'));
+                });
+            </script>
+            <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="text" size="30" maxlength="100" value="" tabindex="106">
+                    <span class="edit-field-overlay">required, but not shown</span>
+                </div>
+            </td>
+        </tr>
+        </table>
+    </div>
+
+            </noscript>
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" value="Post Your Answer" tabindex="110" type="submit">
+									<a href="#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input name="legalLinksShown" value="1" type="hidden">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/python" class="post-tag" title="show questions tagged 'python'" rel="tag">python</a> <a href="http://stackoverflow.com/questions/tagged/matplotlib" class="post-tag" title="show questions tagged 'matplotlib'" rel="tag">matplotlib</a> <a href="http://stackoverflow.com/questions/tagged/data-visualization" class="post-tag" title="show questions tagged 'data-visualization'" rel="tag">data-visualization</a> <a href="http://stackoverflow.com/questions/tagged/heatmap" class="post-tag" title="show questions tagged 'heatmap'" rel="tag">heatmap</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2013-01-18 03:31:17Z"><b>1 year ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>17410 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/14391959/heatmap-in-matplotlib-with-pcolor?lastactivity" class="lastactivity-link" title="2014-01-05 02:15:33Z">10 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+			<div class="module community-bulletin" data-tracker="cb=1">
+    <div class="related">
+                <div class="bulletin-title">
+                    Blog
+                </div>
+                <hr>
+    <div class="spacer">
+        <div class="bulletin-item-type">
+                <a href="http://blog.stackoverflow.com/2014/11/stack-exchange-for-the-ipad-is-here-and-ios-apps-now-support-ios-8/?cb=1" class="question-hyperlink">
+<div class="favicon favicon-stackexchangemeta" title="Meta Stack Exchange"></div>                </a>
+            </div>
+                <div class="bulletin-item-content">
+                    <a href="http://blog.stackoverflow.com/2014/11/stack-exchange-for-the-ipad-is-here-and-ios-apps-now-support-ios-8/?cb=1" class="question-hyperlink">Stack Exchange for the iPad is here – and iOS apps now support iOS 8</a>
+                </div>
+                <br class="cbt">
+            </div>
+    </div>
+</div>			
+			<script>
+                var ados = ados || {};ados.run = ados.run || [];
+                ados.run.push(function() { ados_add_placement(22,8277,"adzerk368070970",[17,2221]).setZone(45) ; });                    
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk368070970"><a href="http://engine.adzerk.net/r?e=eyJhdiI6MzYzMCwiYXQiOjE3LCJidCI6MCwiY20iOjE0NTc5NiwiY2giOjExNzgsImNyIjo0Mzk4NjgsImRpIjoiNWI0NDM2NDQxYWY1NGE0NWFjOTEyZDk2ZjA2MmExYzIiLCJkbSI6MSwiZmMiOjUyNzI2OSwiZmwiOjI3MjE4MSwiaXAiOiIxMzAuMTQ5LjE0LjEzMSIsImt3IjoicHl0aG9uLG1hdHBsb3RsaWIsZGF0YS12aXN1YWxpemF0aW9uLGhlYXRtYXAiLCJtayI6ImRhdGEtdmlzdWFsaXphdGlvbiIsIm53IjoyMiwicGMiOjMsInByIjo3NjUsInJ0IjoyLCJyZiI6Imh0dHA6Ly93d3cuZ29vZ2xlLmRlL3VybD9zYT10JnJjdD1qJnE9JmVzcmM9cyZzb3VyY2U9d2ViJmNkPTMmdmVkPTBDRHdRRmpBQyZ1cmw9aHR0cDovL3N0YWNrb3ZlcmZsb3cuY29tL3F1ZXN0aW9ucy8xNDM5MTk1OS9oZWF0bWFwLWluLW1hdHBsb3RsaWItd2l0aC1wY29sb3ImZWk9T1J0YVZKNjJKWWZCT2JMNGdZZ0QmdXNnPUFGUWpDTkhzSWhLYm43aHFJNWhicXNnNlFSZDlJYWltMGcmYnZtPWJ2Ljc4Njc3NDc0LGQuWldVIiwic3QiOjgyNzcsInVrIjoidWUxLTFkZGQwZDgxMTQxZDQyYzg5ZWFmMTVkYWQ4Mjc1ODFhIiwiem4iOjQ1LCJ0cyI6MTQxNTE5MTM1OTIwMiwidXIiOiJodHRwOi8vd3d3LmZ1c2lvbmNoYXJ0cy5jb20vZGV2ZWxvcGVycy9qYXZhc2NyaXB0LWNoYXJ0LWZpZGRsZXMvP3V0bV9zb3VyY2U9c3RhY2tvdmVyZmxvdyZ1dG1fbWVkaXVtPWJhbm5lciZ1dG1fY29udGVudD1kYXRhX3Zpc3VhbGl6YXRpb25fb2JzZXNzaXZlX2Rldl8yMjB4MjUwIn0&amp;s=CmLb-zT_2w6CM4qeGpqcYRSzt5U" rel="nofollow" target="_blank" title=""><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/42e2ffed04ea455c8950a006d36deb02.jpg" title="" alt="" border="0" height="250" width="220"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input value="12" name="downvoteReason" type="radio">Uninteresting</label></li><li><label><input value="13" name="downvoteReason" type="radio">Misleading</label></li><li><label><input value="14" name="downvoteReason" type="radio">Offensive</label></li><li><label><input value="15" name="downvoteReason" type="radio">Repetitive</label></li></ul><a href="#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/i.gif" style="position:absolute;" border="0" height="0px" width="0px"></div>  
+        <div class=" blue near-you tagged" id="hireme">  <a href="http://careers.stackoverflow.com/?a=2yoaA&amp;utm_source=stackoverflow.com&amp;utm_medium=ad&amp;utm_campaign=jobs-small-sidebar-blue-nearyou" class="top" target="_blank"> <span>Jobs near you</span> </a> <ul class="jobs"> <li> <a href="http://careers.stackoverflow.com/jobs/71173/senior-ruby-developer-fyber?a=nRTAJhCkWtP&amp;utm_source=stackoverflow.com&amp;utm_medium=ad&amp;utm_campaign=jobs-small-sidebar-blue-nearyou" target="_blank" title="Senior Ruby Developer at Fyber. Click to learn more."> <span class="title">Senior Ruby Developer</span> <span class="company">Fyber</span> <span class="location">Berlin, Germany / relocation</span> </a> </li> <li> <a href="http://careers.stackoverflow.com/jobs/70476/python-backend-developer-m-w-in-berlin-scondoo-gmbh?a=nDp82d5GNma&amp;utm_source=stackoverflow.com&amp;utm_medium=ad&amp;utm_campaign=jobs-small-sidebar-blue-nearyou" target="_blank" title="Python Backend Developer (m/w) in Berlin at scondoo GmbH. Click to learn more."> <span class="title">Python Backend Developer (m/w) in Berlin</span> <span class="company">scondoo GmbH</span> <span class="location">Berlin, Deutschland</span> <span class="post-tag">python</span> <span class="post-tag">google-app-engine</span> </a> </li> <li class="city"><a href="http://careers.stackoverflow.com/jobs/location/berlin%2c%20germany?a=94CnNwk&amp;utm_source=stackoverflow.com&amp;utm_medium=ad&amp;utm_campaign=jobs-small-sidebar-blue-nearyou">More jobs near Berlin...</a></li> </ul> <img alt="" class="impression" src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/nRTAJhCkWtP-nDp82d5GNma-2yoaA-94CnNwk.gif" style="display:none"></div>
+			  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/19588995?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/19588995/python-matplotlib-frequency-pixel-map?lq=1" class="question-hyperlink">Python matplotlib frequency pixel map</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/16304679?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/16304679/how-to-plot-rownames-and-column-names-for-a-heatmap-with-matplotlib?lq=1" class="question-hyperlink">How to plot rownames and column names for a heatmap with matplotlib?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/6352740?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">25</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/6352740/matplotlib-label-each-bin?lq=1" class="question-hyperlink">Matplotlib - label each bin</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/14406214?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">18</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/14406214/moving-x-axis-to-the-top-of-a-plot-in-matplotlib?lq=1" class="question-hyperlink">Moving x-axis to the top of a plot in matplotlib</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/10975402?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">6</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/10975402/matplotlib-heat-map-set-white-color-some-field?lq=1" class="question-hyperlink">Matplotlib heat map, set white color some field</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/21024066?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/21024066/annotate-heatmap-with-value-from-pandas-dataframe?lq=1" class="question-hyperlink">Annotate heatmap with value from Pandas dataframe</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/14465463?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/14465463/can-python-make-a-tile-plot?lq=1" class="question-hyperlink">Can python make a tile plot?</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/18460922?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/18460922/some-labels-are-missing-if-pcolor-plot-is-not-square?lq=1" class="question-hyperlink">Some labels are missing if pcolor plot is not square</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/25071968?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/25071968/heatmap-with-text-in-each-cell-with-matplotlibs-pyplot?lq=1" class="question-hyperlink">Heatmap with text in each cell with matplotlib's pyplot</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/26715211?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">-1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/26715211/how-to-visualize-linear-regression-instances-inputs-coefficients-and-outputs?lq=1" class="question-hyperlink">How to visualize linear regression instances (inputs, coefficients and outputs) with imshow?</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/14391959?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/9089991?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="http://stackoverflow.com/questions/9089991/matplotlib-pcolor?rq=1" class="question-hyperlink">Matplotlib pcolor</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/14406214?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">18
+    </div>
+</a><a href="http://stackoverflow.com/questions/14406214/moving-x-axis-to-the-top-of-a-plot-in-matplotlib?rq=1" class="question-hyperlink">Moving x-axis to the top of a plot in matplotlib</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/15908371?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">7
+    </div>
+</a><a href="http://stackoverflow.com/questions/15908371/matplotlib-colorbars-and-its-text-labels?rq=1" class="question-hyperlink">matplotlib: colorbars and it's text labels</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/20909035?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/20909035/color-a-heatmap-in-python-matplotlib-according-to-requirement?rq=1" class="question-hyperlink">Color a heatmap in Python/Matplotlib according to requirement</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/21519709?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/21519709/heatmap-with-matplotlib-using-matshow?rq=1" class="question-hyperlink">Heatmap with matplotlib using matshow</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/21658865?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/21658865/sorted-data-while-plotting-heatmap?rq=1" class="question-hyperlink">Sorted data while plotting heatmap</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/23563246?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/23563246/drawing-over-matplotlib-axis-figs-get-yticklabel-individual-position-and-use-it?rq=1" class="question-hyperlink">Drawing over matplotlib axis/figs: get yticklabel individual position and use it for drawlines</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/24997925?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/24997925/generate-a-heatmap-in-matplotlib?rq=1" class="question-hyperlink">Generate a heatmap in MatPlotLib</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/24997926?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/24997926/making-a-custom-colormap-using-matplotlib-in-python?rq=1" class="question-hyperlink">Making a custom colormap using matplotlib in python</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/25191882?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/25191882/matplotlib-heatmap-axis-titles-not-aligned-properly?rq=1" class="question-hyperlink">Matplotlib heatmap axis titles not aligned properly</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/137290/placement-location-of-pull-up-pull-down-resistor" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Placement/Location of pull up / pull down resistor?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/31116/if-someone-conducts-unethical-research-unbeknownst-to-anybody-but-produces-posi" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If someone conducts unethical research unbeknownst 
+to anybody, but produces positive results, what would happen to the 
+research once discovered?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-bicycles" title="Bicycles Stack Exchange"></div><a href="http://bicycles.stackexchange.com/questions/25451/how-to-get-over-anger-at-inconsiderate-drivers" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:126 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to get over anger at inconsiderate drivers
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/31065/what-should-i-let-students-do-when-they-finish-exams-early" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What should I let students do when they finish exams early?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/186244/math-books-for-advanced-high-school-students" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Math books for advanced high school students
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-history" title="History Stack Exchange"></div><a href="http://history.stackexchange.com/questions/16959/what-was-the-first-solar-eclipse-that-was-demonstrably-predicted-in-advance" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:324 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What was the first Solar Eclipse that was demonstrably predicted in advance?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/31176/in-reviewing-papers-for-journals-or-conferences-what-should-one-do-if-one-is-no" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    In reviewing papers for journals or conferences, 
+what should one do if one is not fully knowledgeable in the specific 
+area the paper addresses?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-mathoverflow" title="MathOverflow"></div><a href="http://mathoverflow.net/questions/186222/natural-associative-law-for-a-ternary-group" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:504 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Natural associative law for a ternary "group"?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-travel" title="Travel Stack Exchange"></div><a href="http://travel.stackexchange.com/questions/38177/how-do-you-know-if-americans-genuinely-literally-mean-what-they-say" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:273 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do you know if Americans genuinely/literally mean what they say?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-programmers" title="Programmers Stack Exchange"></div><a href="http://programmers.stackexchange.com/questions/261801/how-to-deal-with-no-code-reviews-in-my-new-place-when-i-come-from-that-practice" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:131 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to deal with no code reviews in my new place when I come from that practice?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/210592/how-to-bend-a-curve-above-text-with-tikz" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to bend a curve above text with TikZ?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/71882/if-hermione-had-died-on-the-hunt-for-the-horcruxes-would-her-parents-remember-h" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If Hermione had died on the hunt for the horcruxes, would her parents remember her?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-crypto" title="Cryptography Stack Exchange"></div><a href="http://crypto.stackexchange.com/questions/20020/is-a-dice-implemented-in-a-physics-engine-truly-random" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:281 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is a dice implemented in a physics engine truly random?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-parenting" title="Parenting Stack Exchange"></div><a href="http://parenting.stackexchange.com/questions/16473/where-should-boys-aim-their-urine" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:228 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Where should boys aim their urine?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-unix" title="Unix &amp; Linux Stack Exchange"></div><a href="http://unix.stackexchange.com/questions/166033/delete-a-line-if-same-line-exists-in-the-previous-line" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:106 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    delete a line if same line exists in the previous line
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-salesforce" title="Salesforce Stack Exchange"></div><a href="http://salesforce.stackexchange.com/questions/55204/data-sharing-between-multiple-salesforce-orgs" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:459 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Data sharing between multiple salesforce orgs
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/26753839/efficiently-to-get-all-factors-of-a-given-number" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Efficiently to get all factors of a given number
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/144694/what-is-the-most-efficient-information-storage" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the most efficient information storage?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/50481/are-there-limits-or-costs-to-wishing-forever-for-ability-score-increases" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Are there limits or costs to Wishing forever for ability score increases?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-photo" title="Photography Stack Exchange"></div><a href="http://photo.stackexchange.com/questions/56448/horrible-quality-of-prints-developed-from-film" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:61 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Horrible quality of prints developed from film
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-superuser" title="Super User"></div><a href="http://superuser.com/questions/836116/how-hyper-v-is-classified-as-native-hypervisor" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:3 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How Hyper-V is classified as Native hypervisor?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/41021/find-highest-scoring-matrix-without-property-x" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Find highest scoring matrix without property X
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-drupal" title="Drupal Answers"></div><a href="http://drupal.stackexchange.com/questions/135886/why-doesnt-drupal-render-work-but-render-does" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:220 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why doesn't drupal_render work, but render does?
+                </a>
+
+            </li>
+            <li style="display: list-item;" class="dno js-hidden">
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/3562/drink-a-little-wine-cut-a-little-rug" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Drink a Little Wine, Cut a Little Rug
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/14391959" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/14391959/ivc/49ec');});
+</script>
+<noscript>
+    <div><img src="/posts/14391959/ivc/49ec" class="dno" alt="" width="0" height="0"></div>
+</noscript><div style="display:none" id="prettify-lang">lang-py</div></div>
+
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                        <a href="http://stackoverflow.com/help/badges">badges</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick='StackExchange.switchMobile("on")'>mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="professional system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems.">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="Information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (10)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (7)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&amp;utm_medium=site-ui&amp;utm_campaign=footerlink">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2014 stack exchange inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a>                   with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2014.11.5.1992
+            </div>
+            
+        </div>
+    <iframe id="global-auth-frame" style="display:none" src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/read.html"></iframe></div>
+    <noscript>
+        <div id="noscript-warning">Stack Overflow works best with JavaScript enabled<img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"></div>
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('python,matplotlib,data-visualization,heatmap');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');        
+        
+        ga('set', 'dimension2', '|python|matplotlib|data-visualization|heatmap|');         
+        ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>        
+    
+    
+<script src="python%20-%20Heatmap%20in%20matplotlib%20with%20pcolor%3F%20-%20Stack%20Overflow-Dateien/p.js" type="text/javascript"></script></body></html>

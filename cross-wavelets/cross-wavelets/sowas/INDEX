@@ -1,0 +1,18 @@
+air                     AIR-Index
+createar                AR process time series
+createwgn               White noise time series
+criticalvaluesWCO       Estimates critical values for wavelet coherency
+criticalvaluesWSP       Estimates critical values for Wavelet spectra
+cwt.ts                  Continuous Wavelet transformation of time
+                        series object
+nao                     NAO-Index
+nino3                   NINO3-Index
+plot.wt                 Plots wavelet transform
+plotwt                  Plots wavelet transform
+readmatrix              Loads matrix from file
+readts                  Load time series from file
+rk                      Reproducing Kernel of the Morlet Wavelet
+wco                     Wavelet Sample Coherency
+wcs                     Wavelet Sample Cross Spectrum
+writematrix             Writes matrix to file
+wsp                     Wavelet Sample Spectrum

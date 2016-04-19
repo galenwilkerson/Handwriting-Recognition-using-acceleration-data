@@ -1,0 +1,73 @@
+reading data...
+labels are: set(['K3', 'K2', 'K1', 'P2', 'P1', 'R1', 'R2', 'i1', 'i2', 'O', 'S', 'a', 'c', 'e', 'h', 'l', 'o', 'n', 'p', 's', 'r', 'u', 'z'])
+71 strokes with label K3
+sampling 10 strokes [40, 20, 9, 10, 58, 3, 65, 17, 26, 54]
+saving plot
+71 strokes with label K2
+sampling 10 strokes [37, 64, 65, 13, 28, 27, 60, 14, 62, 18]
+saving plot
+71 strokes with label K1
+sampling 10 strokes [25, 19, 63, 52, 35, 47, 42, 21, 10, 68]
+saving plot
+44 strokes with label P2
+sampling 10 strokes [12, 35, 4, 33, 40, 41, 5, 9, 13, 21]
+saving plot
+44 strokes with label P1
+sampling 10 strokes [12, 1, 7, 0, 28, 8, 3, 21, 22, 20]
+saving plot
+136 strokes with label R1
+sampling 10 strokes [49, 28, 6, 98, 116, 88, 107, 117, 135, 59]
+saving plot
+136 strokes with label R2
+sampling 10 strokes [106, 90, 43, 116, 7, 17, 47, 95, 92, 64]
+saving plot
+85 strokes with label i1
+sampling 10 strokes [41, 32, 69, 74, 57, 12, 18, 19, 30, 58]
+saving plot
+85 strokes with label i2
+sampling 10 strokes [63, 27, 9, 55, 51, 18, 71, 40, 6, 35]
+saving plot
+90 strokes with label O
+sampling 10 strokes [59, 0, 65, 15, 17, 77, 81, 39, 57, 41]
+saving plot
+134 strokes with label S
+sampling 10 strokes [6, 91, 79, 51, 33, 54, 95, 53, 85, 21]
+saving plot
+124 strokes with label a
+sampling 10 strokes [66, 22, 83, 68, 56, 103, 107, 19, 71, 81]
+saving plot
+140 strokes with label c
+sampling 10 strokes [109, 49, 125, 104, 108, 34, 9, 123, 60, 58]
+saving plot
+460 strokes with label e
+sampling 10 strokes [300, 118, 78, 147, 65, 100, 297, 34, 30, 22]
+saving plot
+201 strokes with label h
+sampling 10 strokes [71, 106, 183, 147, 145, 117, 34, 110, 191, 29]
+saving plot
+152 strokes with label l
+sampling 10 strokes [29, 25, 101, 85, 113, 56, 0, 2, 43, 92]
+saving plot
+100 strokes with label o
+sampling 10 strokes [37, 20, 65, 36, 69, 66, 89, 71, 46, 3]
+saving plot
+216 strokes with label n
+sampling 10 strokes [55, 70, 123, 146, 76, 194, 79, 101, 209, 105]
+saving plot
+133 strokes with label p
+sampling 10 strokes [112, 13, 78, 54, 74, 2, 28, 48, 106, 95]
+saving plot
+180 strokes with label s
+sampling 10 strokes [159, 48, 10, 137, 17, 46, 101, 97, 6, 108]
+saving plot
+252 strokes with label r
+sampling 10 strokes [148, 226, 206, 32, 176, 74, 14, 80, 100, 138]
+/usr/lib/pymodules/python2.7/matplotlib/pyplot.py:412: RuntimeWarning: More than 20 figures have been opened. Figures created through the pyplot interface (`matplotlib.pyplot.figure`) are retained until explicitly closed and may consume too much memory. (To control this warning, see the rcParam `figure.max_num_figures`).
+  max_open_warning, RuntimeWarning)
+saving plot
+99 strokes with label u
+sampling 10 strokes [56, 64, 29, 18, 80, 61, 86, 25, 95, 6]
+saving plot
+71 strokes with label z
+sampling 10 strokes [12, 11, 15, 38, 25, 4, 62, 27, 67, 19]
+saving plot

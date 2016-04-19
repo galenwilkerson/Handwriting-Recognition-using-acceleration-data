@@ -1,0 +1,5 @@
+done loading, training SVM...
+Traceback (most recent call last):
+  File "SVM.py", line 42, in <module>
+    target = input_data[:,1281]
+IndexError: index 1281 is out of bounds for axis 1 with size 1122

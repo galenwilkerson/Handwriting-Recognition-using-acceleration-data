@@ -1,0 +1,17 @@
+
+Steps:
+
+Preprocess:
+- smooth data
+- sample at regular intervals (1/10 of total time, etc.) -> input vector X
+- multiply X by itself -> X^2 (feature expansion in prep for kernel method / SVM)
+- center and normalize X^2 by mean and standard deviation
+- vectorize X^2 (10 x 10 -> 100 dimensions) (25 x 25 = 625)
+- concatenate with input X (e.g. 110 dimensions) (625 + 25 = 650)
+- (in our case, we have 650 for each of 16 parameters (accelx, accely, ...) , so 650 x 16 = 10400 data points for each character)
+
+SVM:
+- input into SVM
+- use for training, classification
+
+

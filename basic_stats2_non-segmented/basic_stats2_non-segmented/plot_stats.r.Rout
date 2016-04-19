@@ -1,0 +1,49 @@
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+[Previously saved workspace restored]
+
+> # load non-segmented data, plot stats
+> 
+> # plot:
+> # time series
+> # histogram of values,
+> # autocorrelation, and
+> # wavelet transform
+> # power spectral density (to understand noise)
+> # for each parameter (dimenion) - accelx, accely, etc.
+> 
+> 
+> #########################################################################
+> # load data
+> 
+> # for each parameter (accel_x, etc.)
+> 
+>    # compute histogram for each parameter
+>    # compute autocorrelation for each parameter
+>    # compute the wavelet transform for each dimension
+>    # save all figures
+> 
+> 
+> ##########################################################################
+> 
+> rm(list = ls())
+> library(wavelets)
+Error in library(wavelets) : there is no package called ‘wavelets’
+Execution halted
