@@ -1,4 +1,4 @@
-# Machine-Learning-Signal-Processing-and-Handwriting-Recognition
+# Handwriting Recognition using Machine Learning and Signal Processing 
 
 This was for a paid project (so data cannot be published) to use data from an inertial measurement unit (IMU) as an input source for handwriting recognition.
 
